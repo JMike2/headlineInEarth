@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/head-service/headline-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/head-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/head-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-feign-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-service/headline-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-service/headline-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-test/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/headline-utils/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

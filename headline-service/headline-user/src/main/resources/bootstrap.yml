@@ -1,0 +1,12 @@
+server:
+  port: 51801
+spring:
+  application:
+    name: headline-user
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.236.111.222:8848
+      config:
+        server-addr: 47.236.111.222:8848
+        file-extension: yml
