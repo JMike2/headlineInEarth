@@ -1,4 +1,4 @@
-package headline.user.service;
+package com.headline.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.headline.model.common.dtos.ResponseResult;

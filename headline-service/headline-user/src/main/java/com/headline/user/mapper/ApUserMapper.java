@@ -1,4 +1,4 @@
-package headline.user.mapper;
+package com.headline.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.headline.model.user.pojos.ApUser;

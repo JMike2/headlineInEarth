@@ -1,0 +1,12 @@
+server:
+  port: 51601
+spring:
+  application:
+    name: headline-app-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.236.111.222:8848
+      config:
+        server-addr: 47.236.111.222:8848
+        file-extension: yml

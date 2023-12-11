@@ -1,4 +1,4 @@
-package headline.user.service.impl;
+package com.headline.user.service.impl;
 
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -7,15 +7,14 @@ import com.headline.model.common.enums.AppHttpCodeEnum;
 import com.headline.model.user.dtos.LoginDto;
 import com.headline.model.user.pojos.ApUser;
 import com.headline.utils.common.AppJwtUtil;
-import headline.user.mapper.ApUserMapper;
-import headline.user.service.ApUserService;
+import com.headline.user.mapper.ApUserMapper;
+import com.headline.user.service.ApUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
-import java.sql.Wrapper;
 import java.util.HashMap;
 import java.util.Map;
 
