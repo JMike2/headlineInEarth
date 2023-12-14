@@ -16,6 +16,7 @@
         <module>headline-gateway</module>
         <module>headline-test</module>
         <module>headline-service</module>
+        <module>headline-basic</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->
