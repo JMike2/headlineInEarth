@@ -18,6 +18,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>green20220302</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.headline</groupId>
             <artifactId>headline-utils</artifactId>
         </dependency>

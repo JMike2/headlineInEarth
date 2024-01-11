@@ -1,4 +1,6 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.headline.common.exception.ExceptionCatch,\
   com.headline.common.swagger.SwaggerConfiguration,\
-  com.headline.common.swagger.Swagger2Configuration
+  com.headline.common.swagger.Swagger2Configuration,\
+  com.headline.common.aliyun.GreenImageScan,\
+  com.headline.common.aliyun.GreenTextScan
