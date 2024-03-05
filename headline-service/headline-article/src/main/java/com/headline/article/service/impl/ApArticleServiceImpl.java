@@ -6,6 +6,7 @@ import com.headline.article.mapper.ApArticleConfigMapper;
 import com.headline.article.mapper.ApArticleContentMapper;
 import com.headline.article.mapper.ApArticleMapper;
 import com.headline.article.service.ApArticleService;
+import com.headline.article.service.ArticleFreemarkerService;
 import com.headline.common.constants.ArticleConstants;
 import com.headline.model.article.dtos.ArticleDto;
 import com.headline.model.article.dtos.ArticleHomeDto;
@@ -68,6 +69,9 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
 
     @Autowired
     private ApArticleContentMapper apArticleContentMapper;
+
+    @Autowired
+    private ArticleFreemarkerService articleFreemarkerService;
     @Override
     public ResponseResult saveArticle(ArticleDto articleDto) {
         //1.检查参数
@@ -97,7 +101,8 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
             apArticleContentMapper.updateById(apArticleContent);
 
         }
-
+        //异步调用，生成静态文件上传到MinIO中
+        articleFreemarkerService.buildArticleToMinIO(apArticle,articleDto.getContent());
         //3.结果返回 文章id
         return ResponseResult.okResult(apArticle.getId());
     }

@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.headline.apis.article.IArticleClient;
 import com.headline.common.aliyun.GreenImageScan;
 import com.headline.common.aliyun.GreenTextScan;
+import com.headline.common.tess4j.Tess4jClient;
+import com.headline.file.service.FileStorageService;
 import com.headline.model.article.dtos.ArticleDto;
 import com.headline.model.common.dtos.ResponseResult;
 import com.headline.model.wemedia.pojos.WmChannel;
@@ -14,19 +16,26 @@ import com.headline.wemedia.mapper.WmNewsMapper;
 import com.headline.wemedia.mapper.WmUserMapper;
 import com.headline.wemedia.service.WmNewsAutoScanService;
 import lombok.extern.slf4j.Slf4j;
+import net.sourceforge.tess4j.TesseractException;
 import org.apache.commons.lang.StringUtils;
+import org.apache.yetus.audience.InterfaceAudience;
 import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 @Slf4j
 @Transactional
+@Async //表明方法是异步方法
 public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     @Autowired
     private WmNewsMapper wmNewsMapper;
@@ -100,22 +109,42 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
 
 
     }
-
+    @Autowired
+    private FileStorageService fileStorageService;
     @Autowired
     private GreenImageScan greenImageScan;
+    @Autowired
+    private Tess4jClient tess4jClient;
     /**
      * 审核图片
      * @param images
      * @param wmNews
      * @return
      */
-    private boolean handImageScan(List<String> images, WmNews wmNews) {
+    private boolean handImageScan(List<String> images, WmNews wmNews)  {
         boolean flag = true;
         if(images == null || images.size()==0) return flag;
         //图片去重
         images = images.stream().distinct().collect(Collectors.toList());
         for (String image : images) {
+            //图片识别
+            byte[] bytes = fileStorageService.downLoadFile(image);
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
+
+            String s = null;
             try {
+                BufferedImage bufferedImage = ImageIO.read(inputStream);
+                s = tess4jClient.doOCR(bufferedImage);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //过滤文字
+            boolean isSensitive = handTextScan(s, wmNews);
+            if(!isSensitive){
+                return isSensitive;
+            }
+            try {
+
                 Map map = greenImageScan.imageScan(image);
                 if(map.get("status").equals("reject")){
                     flag = false;

@@ -16,6 +16,8 @@
         <module>headline-user</module>
         <module>headline-article</module>
         <module>headline-wemedia</module>
+        <module>headline-schedule</module>
+        <module>headline-search</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

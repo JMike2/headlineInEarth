@@ -10,6 +10,12 @@
     </parent>
 
     <artifactId>headline-test</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>tess4j-Demo</module>
+        <module>kafka-demo</module>
+        <module>es-init</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

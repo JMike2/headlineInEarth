@@ -3,4 +3,6 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.headline.common.swagger.SwaggerConfiguration,\
   com.headline.common.swagger.Swagger2Configuration,\
   com.headline.common.aliyun.GreenImageScan,\
-  com.headline.common.aliyun.GreenTextScan
+  com.headline.common.aliyun.GreenTextScan,\
+  com.headline.common.tess4j.Tess4jClient,\
+  com.headline.common.redis.CacheService
